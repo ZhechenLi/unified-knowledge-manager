@@ -4,7 +4,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { createAppContext } from "../server/create-app-context.js";
-import { registerIpcHandlers } from "./main-api.js";
+import { registerIpcHandlers as registerMainIpcHandlers } from "./main-api.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rendererHtml = join(__dirname, "..", "dist", "index.html");
@@ -24,9 +24,9 @@ function createContext() {
   return context;
 }
 
-function registerIpcHandlers() {
+function wireIpcHandlers() {
   const appContext = createContext();
-  registerIpcHandlers(ipcMain, appContext);
+  registerMainIpcHandlers(ipcMain, appContext);
 }
 
 async function createWindow() {
@@ -48,7 +48,7 @@ async function createWindow() {
 }
 
 app.whenReady().then(async () => {
-  registerIpcHandlers();
+  wireIpcHandlers();
   await createWindow();
 
   app.on("activate", async () => {

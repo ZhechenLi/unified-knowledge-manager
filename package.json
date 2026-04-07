@@ -1,6 +1,6 @@
 {
   "name": "unified-knowledge-mvp",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Electron-based local-first knowledge manager for Cursor and Codex sessions.",
   "author": "Zhechen Li",
   "productName": "Unified Knowledge Manager",

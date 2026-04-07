@@ -1,12 +1,16 @@
 {
   "name": "unified-knowledge-mvp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Electron-based local-first knowledge manager for Cursor and Codex sessions.",
   "author": "Zhechen Li",
   "productName": "Unified Knowledge Manager",
   "private": true,
   "type": "module",
   "main": "electron/main.js",
+  "engines": {
+    "node": ">=22 <23",
+    "npm": ">=10 <11"
+  },
   "scripts": {
     "dev": "vite",
     "server": "node server/index.js",

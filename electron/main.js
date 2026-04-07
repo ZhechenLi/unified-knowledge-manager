@@ -8,6 +8,7 @@ import { registerIpcHandlers as registerMainIpcHandlers } from "./main-api.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rendererHtml = join(__dirname, "..", "dist", "index.html");
+const preloadScript = join(__dirname, "preload.cjs");
 
 let mainWindow = null;
 let context = null;
@@ -40,7 +41,7 @@ async function createWindow() {
     webPreferences: {
       contextIsolation: true,
       nodeIntegration: false,
-      preload: join(__dirname, "preload.js")
+      preload: preloadScript
     }
   });
 

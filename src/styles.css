@@ -1,0 +1,214 @@
+:root {
+  color-scheme: light;
+  --bg: #f4efe7;
+  --panel: rgba(255, 252, 247, 0.82);
+  --panel-strong: #fffaf2;
+  --ink: #1d1b19;
+  --muted: #6b655b;
+  --accent: #e46c2f;
+  --accent-deep: #b6471e;
+  --line: rgba(29, 27, 25, 0.1);
+  --shadow: 0 24px 80px rgba(54, 35, 11, 0.12);
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(228, 108, 47, 0.18), transparent 28%),
+    linear-gradient(135deg, #f7f3eb 0%, #efe5d4 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  background: #efe3d6;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, var(--accent), #f29b54);
+  color: white;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+}
+
+.shell-sidebar {
+  padding: 2rem 1.5rem;
+  border-right: 1px solid var(--line);
+  background: rgba(252, 247, 238, 0.74);
+  backdrop-filter: blur(18px);
+}
+
+.shell-copy,
+.eyebrow,
+.data-card p,
+.panel p {
+  color: var(--muted);
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 0 1rem;
+  border-radius: 1rem;
+  color: white;
+  background: linear-gradient(135deg, #24150e, var(--accent));
+  letter-spacing: 0.08em;
+}
+
+.shell-nav {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+
+.shell-nav a {
+  padding: 0.85rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid transparent;
+}
+
+.shell-nav a.active {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: var(--line);
+}
+
+.shell-main {
+  padding: 2rem;
+}
+
+.page-frame {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.page-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+}
+
+.page-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.two-up {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.panel,
+.editor-card,
+.data-card {
+  border: 1px solid var(--line);
+  border-radius: 1.4rem;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.panel {
+  padding: 1.25rem;
+}
+
+.stack {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.data-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.status-pill,
+.tag,
+.mini-link {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  background: rgba(228, 108, 47, 0.12);
+  color: var(--accent-deep);
+}
+
+.editor-card {
+  white-space: pre-wrap;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.plain-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+@media (max-width: 960px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .shell-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .shell-main {
+    padding: 1rem;
+  }
+
+  .page-header {
+    align-items: start;
+    flex-direction: column;
+  }
+}

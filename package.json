@@ -1,0 +1,67 @@
+{
+  "name": "unified-knowledge-mvp",
+  "version": "0.1.0",
+  "description": "Electron-based local-first knowledge manager for Cursor and Codex sessions.",
+  "author": "Zhechen Li",
+  "productName": "Unified Knowledge Manager",
+  "private": true,
+  "type": "module",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "server": "node server/index.js",
+    "electron": "electron .",
+    "electron:pack": "npm run build && electron-builder --dir",
+    "dist:desktop": "npm run build && electron-builder --publish never",
+    "dist:release": "npm run build && electron-builder --publish always",
+    "build": "vite build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^6.30.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@vitejs/plugin-react": "^5.0.4",
+    "electron": "^41.1.1",
+    "electron-builder": "^26.8.1",
+    "jsdom": "^26.1.0",
+    "vite": "^7.1.9",
+    "vitest": "^3.2.4"
+  },
+  "build": {
+    "appId": "com.zhechenli.unified-knowledge-manager",
+    "productName": "Unified Knowledge Manager",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "server/**/*",
+      "templates/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "tar.gz"
+      ]
+    }
+  }
+}
